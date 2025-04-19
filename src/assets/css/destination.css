@@ -1,0 +1,56 @@
+.wrapper{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.container{
+  padding: 0 20px;
+}
+
+
+.destination-container {
+  display: flex; /* 讓.container為彈性盒子 */
+}
+
+.sidebar {
+  width: 200px; /* 固定在.container內的寬度 */
+  background-color: lightblue;
+}
+
+.content {
+  flex: 1; /* 填滿.container剩餘空間 */
+  background-color: lightyellow;
+  /* display: flex; */
+}
+
+/* 左邊欄位 */
+.category{
+  font-size: 20px;
+}
+
+.category-item{
+  padding: 20px 20px;
+  list-style: none;
+}
+
+.category-item li {
+  padding-bottom: 12px; 
+}
+
+/* 右邊欄位 */
+.content-top{
+  display: flex;
+}
+
+.content-top .option{
+  /* border-color: red; */
+  padding: 8px;
+  border-radius: 10px;
+}
+
+.destination-chose{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
