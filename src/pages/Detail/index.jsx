@@ -77,7 +77,7 @@ const Detail = () => {
               </div>
             </div>
             <div className='title_detal_2'>
-              <p className='sold'>NT${ticket?.price}起</p>
+              <p className='sold'>NT${ticket?.price}</p>
               <button className='button'>選擇方案</button>
               <i className="fa-solid fa-bolt-lightning"></i>
               <p className='check'>立即確認</p>
@@ -129,7 +129,7 @@ const Detail = () => {
               </ul>
             </div>
             <div className="ticket_price">
-              <p className="price">NT$1,092 起</p>
+              <p className="price">NT$1,092</p>
               <button className="ticket_price_cho">選擇</button>
             </div>
           </div>

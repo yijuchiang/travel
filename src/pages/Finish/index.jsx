@@ -1,6 +1,12 @@
-import { Link } from "react-router-dom"
+import ViewCard from '@/components/ViewCard'
+import { useNavigate } from 'react-router-dom'
+import { useTravelData } from '../../hooks/useTravelData'
 
 const Finish = () => {
+
+  const navigate = useNavigate();
+  const { travelData } = useTravelData()
+
   return (
   <div>
     <div class="status-header">
@@ -32,10 +38,15 @@ const Finish = () => {
         </div>
         <div class="info-item">
           <label>電子郵件信箱</label>
-          <p>support@anything-best.com</p>
+          <p>lulu01019@gmail.com</p>
         </div>
       </div>
-      <Link href="#" class="btn">訂單明細</Link>
+      <button class="btn primary">訂單明細</button>
+      <div class="product-summary">
+        {travelData.filter(item => item.category === "view").map(item => (
+            <ViewCard key={item.id} image={item.images[0]} title={item.title} amount={item.sale} price={item.price} onClick={() => navigate(`/detail/${item.id}`)} />
+          ))}
+      </div>
     </div>
   </div>
   )

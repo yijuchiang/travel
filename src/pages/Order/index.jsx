@@ -1,20 +1,11 @@
 import ViewCard from '@/components/ViewCard'
-import { useNavigate } from 'react-router-dom';
-
-const viewCardData = [
-  {
-    view: 1,
-    image: 'https://images.unsplash.com/photo-1595672410691-67ca64d681d9?q=80&w=3271&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    title: '東京鐵塔大展望台 Tokyo Tower ｜電子門票',
-    amount: '(1,459)',
-    price: 332,
-  },
-]
-
+import { useNavigate } from 'react-router-dom'
+import { useTravelData } from '../../hooks/useTravelData'
 
 const Order = () => {
 
   const navigate = useNavigate();
+  const { travelData } = useTravelData()
 
   return (
     <>
@@ -51,11 +42,11 @@ const Order = () => {
             <label>電子郵件信箱</label>
             <input type="email" placeholder="lulu01019@gmail.com"/>
           </div>
-          <button class="btn primary">繼續</button>
+          <button class="btn primary">訂單明細</button>
         </form>
         <div class="product-summary">
-          {viewCardData.map(item => (
-              <ViewCard key={item.view} image={item.image} title={item.title} amount={item.amount} price={item.price}/>
+          {travelData.filter(item => item.category === "view").map(item => (
+              <ViewCard key={item.id} image={item.images[0]} title={item.title} amount={item.sale} price={item.price} onClick={() => navigate(`/detail/${item.id}`)} />
             ))}
         </div>
       </div>
