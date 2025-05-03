@@ -10,7 +10,9 @@ import { persist } from 'zustand/middleware';
 
 export const useUserStore = create(persist((set) => ({
     darkMode: false,
-    setDarkMode: (mode) => set(() => ({ darkMode: mode }))
+    setDarkMode: (mode) => set(() => ({ darkMode: mode })),
+    language: 'zh_TW',
+    setLanguage: (lang) => set(() => ({ language: lang })),
   }), {
     name: 'user'
   }

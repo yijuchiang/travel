@@ -30,8 +30,14 @@ header .navbar{
 } 
 
 .menu-item .menu-link{
+  background: none;
+  border: none;
   transition: all .3s;
-}
+  }
+
+/* .menu-item .menu-link i{
+  
+} */
 
 .menu-item .menu-link.menu-user{
   border: 1px solid #000;
@@ -73,6 +79,72 @@ header .navbar{
 .menu-item:hover .menu-link.menu-user{
   border: 1px solid #26bec9;
 }
+
+/* 購物車 */
+.cart .card{
+  /* border: 1px solid black; */
+  display: flex;
+  height: 120px;
+  width: 320px;
+
+}
+
+.cart .card .pic{
+ /* border: 1px solid black; */
+ width: 100px;
+ height: 100px;
+ border-radius: 8px;
+ margin: 2px 
+}
+
+.cart .card .pic .card__image{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.cart .card .content{
+ /* border: 1px solid black; */
+ background: none;
+ margin: 2px;
+ font-size: 16px;
+}
+
+.cart .card .content .detail{
+  /* border: 1px solid black; */
+  margin: 40px 0 0 0;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.delete{
+  height: 16px;
+}
+
+.cart-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;  /* 控制卡片間的間距 */
+}
+
+.cart-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  /* border: 1px solid #ccc; */
+}
+
+.amo span {
+  margin-right: 8px; /* 兩個 span 中間加一點距離 */
+}
+
+.btn {
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
 
 
 main{
@@ -176,6 +248,7 @@ footer {
   flex: 1;
   border-radius: 10px;
   overflow: hidden;
+  cursor: pointer;
 }
 .hot-card .card__image{
   width: 100%;
@@ -241,13 +314,27 @@ footer {
   color: orangered;
 }
 .top-card .card__info .card__info__btn{
-  display: inline-block;
-  background-color: antiquewhite;
-  color: coral;
+  display: block;
+  background: linear-gradient(to right, #FFDAB9 50%, #fff 50%);
+  background-size: 200% 100.5%;
+  background-position: right bottom;
+  color: #020202;
+  border: none;
+  border-left: 4px solid #FFDAB9;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease-out;
   padding: 4px 8px;
   border-radius: 4px;
   margin-bottom: 10px;
+  cursor: pointer;
 }
+
+.top-card .card__info .card__info__btn:hover {
+  background-position: left bottom;
+  color: #FF6347;
+}
+
+
 .top-card .card__info .card__info__detail{
   display: flex;
   justify-content: space-between;
@@ -273,6 +360,7 @@ footer {
   min-width: calc(33.33333% - 12px);
   padding: 12px;
   border-radius: 8px;
+  cursor: pointer;
 }
 
 .view-card-container .view-card-image__container{

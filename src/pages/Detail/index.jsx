@@ -13,33 +13,45 @@
 //   }
 // ]
 
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
-
+import { useTravelData } from '../../hooks/useTravelData'
+import { useParams } from 'react-router-dom';
+import { Calendar } from 'antd';
 const Detail = () => {
+  const { travelData } = useTravelData()
+  const { id } = useParams()
+  const ticket = travelData.find(item => item.id === Number(id))
+  const onPanelChange = (value, mode) => {
+    console.log(value.format('YYYY-MM-DD'), mode);
+  };
+  // TODO: 做loading
+  if (!ticket) return <div>loading</div>
+
+  console.log(ticket);
+
+
   return (
     <>
       <section className="picture">
         <div className="container">
           <div className='pic_container'>
             <div className='pic_1'>
-              <img src="./assets/images/card-2.jpeg" alt=""/> 
+              <img src={ticket?.images?.[0]} alt=""/> 
             </div>
             <div className='pic_2'>
               <div className='pic_item1'>
                 <div className="pic_item1_1">
-                  <img src="./assets/images/card4.webp" alt=""/>
+                  <img src={ticket?.images?.[1]} alt=""/>
                 </div>
                 <div className="pic_item1_2">
-                  <img src="./assets/images/card4.webp" alt=""/>
+                  <img src={ticket?.images?.[2]} alt=""/>
                 </div>
               </div>
               <div className='pic_item2'>
                 <div className="pic_item2_1">
-                  <img src="./assets/images/card4.webp" alt=""/>
+                  <img src={ticket?.images?.[3]} alt=""/>
                 </div>
                 <div className="pic_item2_2">
-                  <img src="./assets/images/card4.webp" alt=""/>
+                  <img src={ticket?.images?.[4]} alt=""/>
                 </div>
               </div>
             </div>
@@ -51,7 +63,8 @@ const Detail = () => {
           <div className="title_container">
             <div className='title_detal_1'>
               <div className="title_detal_1_1">
-                <p className="title_main">東京哈利波特影城門票</p>
+                <p className="title_main">{ticket?.title}</p>
+                {/* 加問號的意思，ticket是undefined就不要再執行 */}
                 <i className="fa-regular fa-heart"></i>
               </div>
               <div className="title_detal_1_2">
@@ -60,11 +73,11 @@ const Detail = () => {
                 <i className="fa-solid fa-star"></i>
                 <i className="fa-solid fa-star"></i>
                 <i className="fa-solid fa-star"></i>
-                <span>已售出 200K+</span>
+                <span>已售出{ticket?.sale}組</span>
               </div>
             </div>
             <div className='title_detal_2'>
-              <p className='sold'>NT$1,092起</p>
+              <p className='sold'>NT${ticket?.price}起</p>
               <button className='button'>選擇方案</button>
               <i className="fa-solid fa-bolt-lightning"></i>
               <p className='check'>立即確認</p>
@@ -120,6 +133,7 @@ const Detail = () => {
               <button className="ticket_price_cho">選擇</button>
             </div>
           </div>
+          <Calendar fullscreen={false} onPanelChange={onPanelChange} />
         </div>
       </section>
     </>

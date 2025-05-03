@@ -1,4 +1,5 @@
 import ViewCard from '@/components/ViewCard'
+import { useNavigate } from 'react-router-dom';
 
 const viewCardData = [
   {
@@ -10,7 +11,11 @@ const viewCardData = [
   },
 ]
 
+
 const Order = () => {
+
+  const navigate = useNavigate();
+
   return (
     <>
     <div class="checkout-container">
@@ -58,7 +63,7 @@ const Order = () => {
         <div class="summary-box">
           <p>訂單總金額（1件商品） <span>$332</span></p>
           <p>訂單完成後回饋 <span class="points">k 141</span></p>
-          <button class="btn confirm">確認付款</button>
+          <button class="btn confirm" onClick={() => navigate('/finish')}>確認付款</button>
         </div>
       </div>
     </div>
