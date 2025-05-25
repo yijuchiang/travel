@@ -1,6 +1,6 @@
 import React from 'react'
 
-const CartCard = ({image, title, price}) => {
+const CartCard = ({image, title, price, amount, onDelete }) => {
   return (
     <div className='cart'>
       <div className='card'>
@@ -10,9 +10,9 @@ const CartCard = ({image, title, price}) => {
         <div className="content">
           <div className='title'>{title}</div>
           <div className="detail">
-            <span>${price} x1</span>
+            <span>${price} x {amount}</span>
           </div>
-          <button className='delete'>刪除</button>
+          <button onClick={onDelete} className='delete'>刪除</button>
         </div>  
       </div>
     </div>

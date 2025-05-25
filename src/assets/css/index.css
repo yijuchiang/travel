@@ -5,6 +5,8 @@
 @import './darkTheme.css';
 @import './order.css';
 @import './finish.css';
+@import "tailwindcss";
+
 
 * {
   box-sizing: border-box;

@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import { Home, Detail, NotFound, Destination, Order, Finish, } from '@/pages'
+import { Home, Detail, NotFound, Destination, Order, Finish, Map} from '@/pages'
 import Layout from '@/components/Layout'
 
 const router = createBrowserRouter([
@@ -26,6 +26,10 @@ const router = createBrowserRouter([
       {
         path: '/finish',
         element: <Finish />
+      },
+      {
+        path: '/map',
+        element: <Map />
       },
       {
         path: '*',

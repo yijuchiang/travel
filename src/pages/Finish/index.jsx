@@ -1,11 +1,14 @@
-import ViewCard from '@/components/ViewCard'
 import { useNavigate } from 'react-router-dom'
 import { useTravelData } from '../../hooks/useTravelData'
+import CartCard from '../../components/CartCard';
+import { useCartStore } from '@/store/cart';
 
 const Finish = () => {
 
   const navigate = useNavigate();
-  const { travelData } = useTravelData()
+  const { travelData } = useTravelData();
+  const cart = useCartStore((state) => state.cart);
+
 
   return (
   <div>
@@ -43,9 +46,9 @@ const Finish = () => {
       </div>
       <button class="btn primary">訂單明細</button>
       <div class="product-summary">
-        {travelData.filter(item => item.category === "view").map(item => (
-            <ViewCard key={item.id} image={item.images[0]} title={item.title} amount={item.sale} price={item.price} onClick={() => navigate(`/detail/${item.id}`)} />
-          ))}
+          {cart.map(item => (
+              <CartCard key={item.id} image={item.ticket.images[0]} title={item.ticket.title} amount={item.amount} price={item.ticket.price} onClick={() => navigate(`/detail/${item.ticket.id}`)} />
+            ))}
       </div>
     </div>
   </div>

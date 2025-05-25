@@ -1,11 +1,17 @@
-import ViewCard from '@/components/ViewCard'
 import { useNavigate } from 'react-router-dom'
 import { useTravelData } from '../../hooks/useTravelData'
+import CartCard from '../../components/CartCard';
+import { useCartStore } from '@/store/cart';
+
+
 
 const Order = () => {
 
   const navigate = useNavigate();
-  const { travelData } = useTravelData()
+  const { travelData } = useTravelData();
+  const cart = useCartStore((state) => state.cart);
+  const totalAmount = cart.reduce((prev , item) => prev + item.amount, 0);
+  const totalPrice = cart.reduce((prev , item) => prev + item.totalPrice, 0)
 
   return (
     <>
@@ -45,15 +51,15 @@ const Order = () => {
           <button class="btn primary">訂單明細</button>
         </form>
         <div class="product-summary">
-          {travelData.filter(item => item.category === "view").map(item => (
-              <ViewCard key={item.id} image={item.images[0]} title={item.title} amount={item.sale} price={item.price} onClick={() => navigate(`/detail/${item.id}`)} />
+          {cart.map(item => (
+              <CartCard key={item.id} image={item.ticket.images[0]} title={item.ticket.title} amount={item.amount} price={item.ticket.price} onClick={() => navigate(`/detail/${item.ticket.id}`)} />
             ))}
         </div>
       </div>
       <div class="right-section">
         <div class="summary-box">
-          <p>訂單總金額（1件商品） <span>$332</span></p>
-          <p>訂單完成後回饋 <span class="points">k 141</span></p>
+          <p>訂單總金額（{totalAmount} 件商品） <span>NT$ {totalPrice}</span></p>
+          <p>訂單完成後回饋 <span class="points">k {Math.floor(totalPrice / 2)}</span></p>
           <button class="btn confirm" onClick={() => navigate('/finish')}>確認付款</button>
         </div>
       </div>

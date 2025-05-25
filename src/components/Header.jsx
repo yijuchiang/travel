@@ -8,14 +8,14 @@ import { useLanguage } from '../hooks/useLanguage';
 import CartCard from '@/components/CartCard';
 import { useTravelData } from '../hooks/useTravelData'
 import { useNavigate } from 'react-router-dom';
-
-
+import { useCartStore } from '@/store/cart';
 
 // a標籤 vs. Link標籤差別
 // a標籤 => 自帶重新刷新頁面
 // Link標籤 => 在頁面顯示的時候是ａ標籤，但是不會重刷頁面的方式跳轉頁面
 
 const Header = () => {
+  const { cart, removeCart } = useCartStore()
   const { t } = useTranslation()
   const { darkMode, setDarkMode } = useUserStore()
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -36,7 +36,8 @@ const Header = () => {
         )}
     ]
   const navigate = useNavigate();
-
+  const totalAmount = cart.reduce((prev , item) => prev + item.amount, 0)
+  const totalPrice = cart.reduce((prev , item) => prev + item.totalPrice, 0)
 
   return (
     <>
@@ -48,7 +49,7 @@ const Header = () => {
             </Link>
             <ul className="menu-list">
               <li className="menu-item menu-text">
-                <Link className="menu-link menu-text" to="/destination">{t('destination')}</Link>
+                <Link className="menu-link menu-text" to="/map">{t('destination')}</Link>
               </li>
               {/* <li className="menu-item">
                 <a className="menu-link menu-text" href="#">所有優惠</a>
@@ -82,15 +83,19 @@ const Header = () => {
         </div>
       </header>
       <Drawer title="購物車" onClose={() => setIsCartOpen(false)} open={isCartOpen}>
-        <div className="card-list">
-          {travelData.filter(item => item.category === "view").map(item => (
-            <CartCard key={item.id} image={item.images[0]} title={item.title} price={item.price}/>
+        {cart.length ? (
+          <div className="card-list">
+          {cart.map(item => (
+            <CartCard key={item.id} image={item.ticket.images[0]} title={item.ticket.title} price={item.ticket.price} amount={item.amount} onDelete={() => removeCart(item.id)} />
           ))}
         </div>
+        ) : (
+          <div>你的購物車是空的唷!</div>
+        )}
         <div className="cart-summary">
           <div className="amo">
-            <span>共 3 個</span>
-            <span>總共 1000元</span>
+            <span>共 {totalAmount} 個</span>
+            <span>總共 {totalPrice} 元</span>
           </div>
           <button className='btn' onClick={() => navigate('/order')}>立即結帳</button>
         </div>       
