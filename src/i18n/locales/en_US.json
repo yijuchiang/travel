@@ -1,4 +1,9 @@
 {
   "login": "Login",
-  "destination": "Destination"
+  "destination": "Destination",
+  "banner-title":"Find your special local experience!!",
+  "banner-desc":"Holiday expert for travelers",
+  "hot-activity":"Trending activities",
+  "top-city":"Popular cities",
+  "view":"Recently view"
 }

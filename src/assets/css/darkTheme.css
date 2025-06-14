@@ -6,3 +6,51 @@
   color: white;
 }
 
+.darkMode i{
+  color: white;
+}
+
+.darkMode button{
+  color: white;
+}
+
+.darkMode .banner .banner-title{
+  color: white;
+}
+
+.darkMode .banner .banner-desc{
+  color: white;
+}
+
+.darkMode .hot-card .card__title{
+  color: #26bec9;
+}
+
+.darkMode .top-card .card__info__title{
+  color: #26bec9;
+}
+
+.darkMode .top-card .card__info__price{
+  color: white;
+}
+
+.darkMode .view-card-container{
+  border: 1px dotted white;
+}
+
+.darkMode .view-card-container .card-title{
+  color: #26bec9;
+}
+
+.darkMode .view-card-container .price{
+  color: white;
+}
+
+.darkMode .view-card-container .amount{
+  color: #808080;
+}
+
+.darkMode .view-card-container i{
+  opacity: 0.7;
+  color: lightpink;
+}

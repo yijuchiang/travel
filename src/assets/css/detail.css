@@ -112,20 +112,34 @@
   justify-content: space-around;
   padding: 10px;
   }
-  
+
+.loading {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 
 .title_detal_2 .sold{
   font-size: 24px;
-  color:blue;
+  color: dodgerblue;
 }
 
 .title_detal_2 .button{
   width: 100%;
   border: none;
-  color: #eee;
+  color: #fff;
   background-color: #26bec9;
   padding: 8px 24px;
-  border-radius: 0 4px 4px 0;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.title_detal_2 .check_box_box{
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: end;
+ 
 }
 
 .check{
@@ -206,6 +220,7 @@ ul {
   font-weight: bold;
   margin-bottom: 8px;
   display: inline;
+  color: dodgerblue;
 }
 
 .ticket_price_cho {
@@ -224,7 +239,7 @@ ul {
 /* 選擇方案 */
 .final_check{
   /* border: 1px solid black; */
-  margin-top: 16px;
+  margin-top: 32px;
 }
 
 .option{
@@ -247,8 +262,7 @@ ul {
   border: none;
   font-size: 16px;
   margin-left: 8px;
-  padding: 4px;
-  background-color: rgb(254, 254, 100);
+  padding: 4px 8px 4px 8px;
   border-radius: 4px;
 }
 

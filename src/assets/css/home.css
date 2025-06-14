@@ -10,52 +10,52 @@ header{
   border-bottom: 1px solid #eee;
 }
 
-header .navbar{
+/* header .navbar{
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
+} */
 
 /* flex-direction預設方向是row＝水平方向*/
-.navbar .menu-list{
+/* .navbar .menu-list{
   display: flex;
   gap: 12px;
-}
+} */
 
-.menu-list .menu-item{
+/* .menu-item {
   padding: 20px 0;
   position: relative;
   display: flex;
   align-items: center;
-} 
+} */
 
-.menu-item .menu-link{
+/* .menu-item .menu-link{
   background: none;
   border: none;
   transition: all .3s;
-  }
+  } */
 
 /* .menu-item .menu-link i{
   
 } */
 
-.menu-item .menu-link.menu-user{
+/* .menu-item .menu-link.menu-user{
   border: 1px solid #000;
   display: block;
   width: 24px;
   height: 24px;
   border-radius: 50%;
   position: relative;
-}
+} */
 
-.menu-item .menu-link.menu-user i {
+/* .menu-item .menu-link.menu-user i {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-}
+} */
 
-.menu-item .menu-link.menu-text::after{
+.menu-text::after{
   content: '';
   width: 0;
   display: block;
@@ -86,7 +86,6 @@ header .navbar{
   display: flex;
   height: 120px;
   width: 320px;
-
 }
 
 .cart .card .pic{
@@ -109,17 +108,32 @@ header .navbar{
  background: none;
  margin: 2px;
  font-size: 16px;
+ position: relative
 }
+
+.cart .card .title{
+  /* border: 1px solid black; */
+}
+
 
 .cart .card .content .detail{
   /* border: 1px solid black; */
-  margin: 40px 0 0 0;
+  margin: 8px 0 0 0;
   display: flex;
   justify-content: flex-end;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  gap: 8px;
 }
 
 .delete{
-  height: 16px;
+  /* border: 1px solid black; */
+  margin-left: 4px;
+  background-color: #FFDAB9;
+  font-size: 12px;
+  border-radius: 4px;
+  padding: 4px;
 }
 
 .cart-list {
@@ -357,6 +371,7 @@ footer {
 
 
 .view-card-container{
+  /* border: 1px solid black; */
   flex: 1;
   min-width: calc(33.33333% - 12px);
   padding: 12px;

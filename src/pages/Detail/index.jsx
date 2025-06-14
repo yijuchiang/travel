@@ -1,11 +1,12 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useTravelData } from '../../hooks/useTravelData'
 import { useParams } from 'react-router-dom';
 import { Calendar, message } from 'antd';
 import { useCartStore } from '../../store/cart';
-
+import { Spin } from 'antd';
 
 const Detail = () => {
+  const planRef = useRef(null)
   const [amount, setAmount] = useState(1)
   const [date, setDate] = useState('')
   const [isCartOpen, setIsCartOpen] = useState(false)
@@ -33,15 +34,19 @@ const Detail = () => {
     addCart();          // 執行加入購物車的邏輯
     setIsCartOpen(true); // 開啟購物車視窗
   };
-  
+
+  const handleSelect = () => {
+    planRef.current.scrollIntoView({ behavior: "smooth" })
+  }
 
   // TODO: 做loading
-  if (!ticket) return <div>loading</div>
+  if (!ticket) return <Spin className='loading' size="large" />
 
   return (
     <>
+    <div className='my-container'>
       <section className="picture">
-        <div className="container">
+        <div className="">
           <div className='pic_container'>
             <div className='pic_1'>
               <img src={ticket?.images?.[0]} alt=""/> 
@@ -78,15 +83,17 @@ const Detail = () => {
               </div>
               <div className="title_detal_1_2">
                 {/* react把陣列看成重複渲染的列表 */}
-              {Array.from({ length: 5 }, () => <i className="fa-solid fa-star"></i>)}
-                <span>已售出{ticket?.sale}組</span>
+              {Array.from({ length: 5 }, () => <i className="fa-solid fa-star  text-yellow-500"></i>)}
+                <span className='ml-3 text-gray-500'>已售出{ticket?.sale}組</span>
               </div>
             </div>
             <div className='title_detal_2'>
               <p className='sold'>NT${ticket?.price}</p>
-              <button className='button'>選擇方案</button>
-              <i className="fa-solid fa-bolt-lightning"></i>
-              <p className='check'>立即確認</p>
+              <button className='button' onClick={handleSelect}>選擇方案</button>
+              <div className='check_box_box'>
+                <i className="fa-solid fa-bolt-lightning text-red-400"></i>
+                <p className='check text-red-400'>立即確認</p>
+              </div>
             </div>
           </div>
         </div>
@@ -102,7 +109,7 @@ const Detail = () => {
       </section>
       <section className="ticket">
         <div className="container">
-          <h2 className="ticket_title">
+          <h2 className="ticket_title" ref={planRef}>
             選擇方案
           </h2>
           <div className="ticket_card">
@@ -110,9 +117,9 @@ const Detail = () => {
               <img src={ticket?.images?.[0]} alt=""/> 
             </div>
             <div className="ticket_info">
-              <span className="ticket_title">{ticket?.title}</span>
+              <span className="ticket_title text-red-400">{ticket?.title}</span>
               <span className="buy">即買即用</span>
-              <p className="time">{ticket?.card.time}</p>
+              <p className="time text-red-700">{ticket?.card.time}</p>
               <ul className="ticket_detal">
                 {ticket?.card.detail.map(item => (<li key={item}>{item}</li>))}
               </ul>
@@ -131,15 +138,15 @@ const Detail = () => {
               </div>
               <div className="w-[360px] relative">
                 <div className="absolute left-0 bottom-0 p-4">
-                  <p className='font-bold'>選擇數量</p>
+                  <p className=' mb-2'>選擇數量</p>
                   <div>
-                    <p>人數</p>
+                    <p className='mb-2'>人數</p>
                     <div>
-                      <p>NT${ticket.price}/每人</p>
+                      <p className='mb-2'>NT${ticket.price}/每人</p>
                       <div className='flex gap-2'>
-                        <button style={{ background: 'yellow' }} onClick={() => setAmount(prev => Math.max(prev - 1, 1))}><i class="fa-solid fa-minus"></i></button>
+                        <button className='' onClick={() => setAmount(prev => Math.max(prev - 1, 1))}><i className="fa-solid fa-minus bg-[#26bec9] text-white rounded-full w-6 h-6 inline-flex items-center justify-center"></i></button>
                         {amount}
-                        <button style={{ background: 'yellow' }} onClick={() => setAmount(prev => prev + 1)}><i class="fa-solid fa-plus"></i></button>
+                        <button className='' onClick={() => setAmount(prev => prev + 1)}><i class="fa-solid fa-plus bg-[#26bec9] text-white rounded-full w-6 h-6 inline-flex items-center justify-center"></i></button>
                       </div>
                     </div>
                   </div>
@@ -149,11 +156,12 @@ const Detail = () => {
           </div>
           <hr />
           <div className="total">
-            <p className=''>總金額:NT${amount * ticket.price}</p>
-            <button className="addcard_btn" onClick={handleAddCartAndOpen}>加入購物車</button>
+            <p className='font-semibold underline text-[#26bec9] '>總金額:NT${amount * ticket.price}</p>
+            <button className="addcard_btn bg-[#26bec9] text-white" onClick={handleAddCartAndOpen}>加入購物車</button>
           </div>
         </div>
       </section>
+    </div>
     </>
   )
 }

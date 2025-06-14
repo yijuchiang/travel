@@ -5,7 +5,7 @@
 @import './darkTheme.css';
 @import './order.css';
 @import './finish.css';
-@import "tailwindcss";
+@import "./tailwindcss.css";
 
 
 * {
@@ -28,7 +28,7 @@ a {
   min-height: 100vh;
 }
 
-.container{
+.my-container{
   padding: 0 20px;
 }
 .cart {

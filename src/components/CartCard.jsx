@@ -11,8 +11,8 @@ const CartCard = ({image, title, price, amount, onDelete }) => {
           <div className='title'>{title}</div>
           <div className="detail">
             <span>${price} x {amount}</span>
+            <button onClick={onDelete} className='delete'>刪除</button>
           </div>
-          <button onClick={onDelete} className='delete'>刪除</button>
         </div>  
       </div>
     </div>
