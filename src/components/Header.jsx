@@ -6,20 +6,10 @@ import { useUserStore } from '@/store/user';
 import { useTranslation } from "react-i18next";
 import { useLanguage } from '../hooks/useLanguage';
 import CartCard from '@/components/CartCard';
-import { useTravelData } from '../hooks/useTravelData'
 import { useNavigate } from 'react-router-dom';
 import { useCartStore } from '@/store/cart';
 import { homeApi } from '../api/home';
 
-// a標籤 vs. Link標籤差別
-// a標籤 => 自帶重新刷新頁面
-// Link標籤 => 在頁面顯示的時候是ａ標籤，但是不會重刷頁面的方式跳轉頁面
-
-// axios.post('url', {...})
-// 前端把使用者帳密給後端的API => 後端ok => 後端將token傳給前端
-// 前端將token存進本地(localStorage, cookie)
-// 登入是前端給網頁的狀態: 有token就是登入 沒token登出
-// JWT
 
 const Header = () => {
   const { cart, removeCart } = useCartStore()
@@ -29,13 +19,13 @@ const Header = () => {
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-  const { travelData } = useTravelData();
   const [messageApi, contextHolder] = message.useMessage();
   const {
         language,
         languageList,
         changeLanguage
     } = useLanguage()
+    
   const reset = () => {
     setUsername('')
     setPassword('')
@@ -85,7 +75,7 @@ const Header = () => {
         <button onClick={() => changeLanguage(languageList.zh)} disabled={language === languageList.zh}>繁體中文</button>
         )},
         { key: languageList.en, label: (
-        <button onClick={() => changeLanguage(languageList.en)}disabled={language === languageList.en}>English</button>
+        <button onClick={() => changeLanguage(languageList.en)} disabled={language === languageList.en}>English</button>
         )}
     ]
   const navigate = useNavigate();
@@ -102,9 +92,9 @@ const Header = () => {
               <img className="logo" src={Logo} alt="logo"/>
             </Link>
             <ul className="flex gap-3">
-              <li className="py-5 relative flex items-center menu-text group">
+              {/* <li className="py-5 relative flex items-center menu-text group">
                 <Link className="bg-none border-none transition-all menu-text group-hover:text-[#26bec9]" to="/map">{t('destination')}</Link>
-              </li>
+              </li> */}
               {/* <li className="menu-item">
                 <a className="menu-link menu-text" href="#">所有優惠</a>
               </li> */}
@@ -120,7 +110,7 @@ const Header = () => {
                 </Dropdown>
               </li>
               <li className="py-5 relative flex items-center group">
-                <button style={{ background: '#fff', border: 'none' }} className="bg-none border-none transition-all group-hover:text-[#26bec9] relative" onClick={() => setIsCartOpen(true)}>
+                <button className="bg-none border-none transition-all group-hover:text-[#26bec9] relative" onClick={() => setIsCartOpen(true)}>
                   <i className="fa-solid fa-cart-shopping"></i>
                   {cart.length > 0 && (
                     <p className='absolute -right-2 -top-2 text-xs text-white bg-red-600 rounded-full w-4 h-4'>{cart.length}</p>
@@ -167,13 +157,13 @@ const Header = () => {
         okButtonProps={{
           style: { color: '#ffffff', backgroundColor: '#26bec9', borderColor: '#26bec9' }
           }}>
-        <div>
-          <label htmlFor="username">使用者名稱</label>
-          <input id='username' type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
+        <div className='mb-2 flex items-center'>
+          <label className='w-24 block' htmlFor="username">使用者名稱</label>
+          <input className='p-1' id='username' type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
         </div>
-        <div>
-          <label htmlFor="password">密碼</label>
-          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+        <div className='flex items-center'>
+          <label className='w-24 block' htmlFor="password">密碼</label>
+          <input className='p-1' type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
         </div>
       </Modal>
     </>

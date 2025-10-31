@@ -145,7 +145,7 @@ header{
 .cart-summary {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: end;
   padding: 10px;
   /* border: 1px solid #ccc; */
 }

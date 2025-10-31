@@ -7,7 +7,7 @@ import tailwindcss from 'tailwindcss'
 export default defineConfig({
   plugins: [react()],
   resolve: {
-    alias: { // 2. 新增別名
+    alias: { 
       "@": path.resolve(__dirname, "./src"),
     },
   },

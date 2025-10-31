@@ -1,7 +1,7 @@
 @import './reset.css';
 @import './home.css';
 @import './detail.css';
-@import './destination.css';
+/* @import './destination.css'; */
 @import './darkTheme.css';
 @import './order.css';
 @import './finish.css';
@@ -31,6 +31,7 @@ a {
 .my-container{
   padding: 0 20px;
 }
+
 .cart {
   height: 100%;
   display: flex;

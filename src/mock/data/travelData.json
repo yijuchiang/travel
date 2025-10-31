@@ -20,7 +20,6 @@
             "detail": ["一人成行保證出發！","未滿6 歲以下不佔位/不含餐之幼兒可免費參加，若有同行，請於下訂時於「備註欄」告知。"]
         },
         "category": "top"
-    
     },
     {
         "id": 2,
@@ -974,42 +973,41 @@
     },
 
     
-
     {
         "city": "japan",
         "title": "日本",
         "image": "https://plus.unsplash.com/premium_photo-1661964177687-57387c2cbd14?q=80&w=3270&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         "category": "hot"
-      },
-      {
+    },
+    {
         "city": "korea",
         "title": "韓國",
         "image": "https://imgcdn.cna.com.tw/www/WebPhotos/800/20241204/2000x1336_wmkn_4365327829812_0.jpg",
         "category": "hot"
-      },
-      {
+    },
+    {
         "city": "taiwan",
         "title": "台灣",
         "image": "https://www.agoda.com/wp-content/uploads/2024/06/WMG-3-Featured-image-1244x700.jpg",
         "category": "hot"
-      },
-      {
+    },
+    {
         "city": "america",
         "title": "美國",
         "image": "https://images.unsplash.com/photo-1501466044931-62695aada8e9?q=80&w=3187&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         "category": "hot"
-      },
-      {
+    },
+    {
         "city": "england",
         "title": "英國",
         "image": "https://www.bring-you.info/imgs/2017/10/london-big-ben.jpg",
         "category": "hot"
-      },
-      {
+    },
+    {
         "city": "australia",
         "title": "澳洲",
         "image": "https://images.unsplash.com/photo-1624138784614-87fd1b6528f8?q=80&w=3133&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         "category": "hot"
-      }
-    ]
+    }
+]
     

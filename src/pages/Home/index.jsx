@@ -6,40 +6,10 @@ import { useTravelData } from '../../hooks/useTravelData'
 import { useTranslation } from "react-i18next";
 
 
-
-// 打API => 網址: (協議+域名)+路徑 + 請求方法: get/post
-// axios 套件(協助前端去後端請求資料)
-// axios.get(網址)
-// axios.post(網址, 提交數據)
-
-
-// 後端先設定好API(給前端的資料json + 請求網址)
-// 設置給頁面的狀態，並給定初始值[]
-// const [travelData, setTravelData] = useState([])
-// 頁面資料放置 travelData
-// 打API請求資料 => 將數據透過 setTravelData(data) 的方式去改變頁面資料
-
 const Home = () => {
   const navigate = useNavigate()
   const { travelData } = useTravelData()
-  // const [travelData, setTravelData] = useState([])
-  // promise
-  // useEffect(() => {
-  //   axios.get('/mock/travelData').then(data => {
-  //     console.log(data.data);
-  //   })
-  // }, [])
-
-  // async/await
-  // useEffect(() => {
-  //   const getTravelData = async() => {
-  //     const { data } = await homeApi.getTravelData()
-  //     setTravelData(data)
-  //   }
-  //   getTravelData()
-
-  // }, [])
-    const { t } = useTranslation()
+  const { t } = useTranslation()
 
 
   return (
@@ -49,7 +19,7 @@ const Home = () => {
           <p className="banner-title">{t('banner-title')}</p>
           <p className="banner-desc">{t('banner-desc')}</p>
           <div className="banner-content-input">
-            <input placeholder="搜尋景點、地方或城市" type="text"/>
+            <input placeholder={t('input')} type="text"/>
             <button>
               <i className="fa-solid fa-magnifying-glass"></i>
             </button>

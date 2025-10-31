@@ -11,6 +11,6 @@ export const useCartStore = create(persist((set) => ({
       return { cart: newCart }
     })
   }), {
-    name: 'cart'
+    name: 'travel-cart'
   }
 ))

@@ -27,10 +27,10 @@ const router = createBrowserRouter([
         path: '/finish',
         element: <Finish />
       },
-      {
-        path: '/map',
-        element: <Map />
-      },
+      // {
+      //   path: '/map',
+      //   element: <Map />
+      // },
       {
         path: '*',
         element: <NotFound />

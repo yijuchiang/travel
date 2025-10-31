@@ -11,7 +11,7 @@
 
 .pic_1{
   /* border: 1px solid red; */
-  width: 800px;
+  width: 60%;
   border-radius: 8px 0 0 8px;
   margin: 4px 4px 4px 0;
   overflow: hidden;
@@ -136,14 +136,14 @@
 }
 
 .title_detal_2 .check_box_box{
-  /* border: 1px solid black; */
   display: flex;
   justify-content: end;
+  align-items: center;
  
 }
 
 .check{
-  display: inline-block;
+  margin-left: 4px;
 }
 
 /* desc */
@@ -171,8 +171,8 @@ ul {
 
 .ticket_card{
   border: 1px solid #ddd;
-  height: 200px;
-  width: 90%;
+  /* height: 200px; */
+  /* width: 90%; */
   border-radius: 4px;
   display: flex;
   justify-content: space-between;
@@ -218,6 +218,7 @@ ul {
 .price {
   font-size: 20px;
   font-weight: bold;
+  margin-right: 8px;
   margin-bottom: 8px;
   display: inline;
   color: dodgerblue;
@@ -254,6 +255,7 @@ ul {
 
 .total{
   display: flex;
+  align-items: end;
   justify-content: end;
   margin-top: 4px;
 }
